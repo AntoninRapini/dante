@@ -5,19 +5,21 @@
 ## Login   <yoann.rey@epitech.net>
 ##
 ## Started on  Thu Apr 20 14:13:08 2017 Yoann Rey
-## Last update Thu Apr 27 14:26:26 2017 Yoann Rey
+## Last update Fri Apr 28 15:07:57 2017 Yoann Rey
 ##
 
 CC	= gcc
 
 RM	= rm -f
 
-SRCS	= malloc_my_tab.c	\
+SRCS	= src/create_maze.c	\
+	  src/my_getnbr.c	\
+	  src/display.c
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS = -I include/
-CFLAGS += -W Wall -Wextra
+CFLAGS += -I includes/
+CFLAGS += -W -Wall -Wextra
 
 NAME	= maze
 
