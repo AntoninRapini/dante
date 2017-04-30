@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.net>
 **
 ** Started on  Sat Apr 15 18:40:40 2017 Yoann Rey
-** Last update Thu Apr 20 14:19:54 2017 Yoann Rey
+** Last update Sat Apr 29 18:51:48 2017 Antonin Rapini
 */
 
 #include "dante.h"
@@ -32,7 +32,6 @@ char	*my_strdup(char *src)
   if (dup == NULL)
     return (NULL);
   my_strcpy(dup, src);
-  free(src);
   return (dup);
 }
 
