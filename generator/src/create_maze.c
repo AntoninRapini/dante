@@ -5,27 +5,51 @@
 ** Login   <yoann.rey@epitech.net>
 **
 ** Started on  Tue Apr 25 16:17:57 2017 Yoann Rey
-** Last update Fri Apr 28 15:02:28 2017 Yoann Rey
+** Last update Tue May  2 16:43:54 2017 Yoann Rey
 */
 
 #include "maze.h"
 
-void	print_delim(char *size)
+void	print_delim(int x, t_maze *map)
 {
-  int	x;
-
-  x = 0;
-  while (x < my_getnbr(size) * 2 + 1)
+  while (map->size < x * 2 + 1)
     {
-      my_putchar('1');
-      x++;
+      my_putchar('X');
+      map->size++;
     }
+  my_putchar('\n');
+}
+int	create_maze(int x, int y)
+{
+  t_maze	*map;
+  int		tab_size;
+
+  if ((map = malloc(sizeof(t_maze))) == NULL)
+    return (1);
+  map->wall = 'X';
+  map->size = 0;
+  tab_size = 1;
+  malloc_my_tab(x, map->maze);
+  print_delim(x, map);
+  map->size = 0;
+  while (tab_size < y)
+    {
+      while (map->size < x * 2 + 1)
+	{
+	  my_putchar(map->wall);
+	  map->size++;
+	}
+      map->size = 0;
+      my_putchar('\n');
+      tab_size++;
+    }
+  return (0);
 }
 
 int	main(int ac, char **av)
 {
-  if (ac < 2)
+  if (ac != 3)
     return (84);
-  print_delim(av[1]);
+  create_maze(my_getnbr(av[1]), my_getnbr(av[2]));
   return (0);
 }
