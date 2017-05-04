@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.net>
 **
 ** Started on  Wed Apr 26 17:10:35 2017 Yoann Rey
-** Last update Tue May  2 14:44:33 2017 Yoann Rey
+** Last update Thu May  4 14:22:32 2017 Yoann Rey
 */
 
 #ifndef MAZE_H_
@@ -18,14 +18,13 @@
 typedef struct s_maze
 {
   int	size;
-  char	wall;
   char	**maze;
+  char	wall;
 }		t_maze;
 
 /* create_maze.c */
 
-int	create_maze(int, int);
-void	print_delim(int, t_maze *);
+int	create_map(int, int);
 
 /* malloc_my_tab */
 
