@@ -5,12 +5,13 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Mon May  1 17:58:10 2017 Antonin Rapini
-** Last update Fri May  5 01:38:28 2017 Antonin Rapini
+** Last update Fri May  5 20:01:23 2017 Antonin Rapini
 */
 
 #ifndef DANTE_H_
 # define DANTE_H_
 
+# define VISITED_CHAR 'V'
 # define WALL_CHAR 'X'
 # define EMPTY_CHAR '*'
 # define PATH_CHAR 'o'

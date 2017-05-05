@@ -5,7 +5,7 @@
 ## Login   <antonin.rapini@epitech.net>
 ## 
 ## Started on  Tue Nov 29 08:50:17 2016 Antonin Rapini
-## Last update Fri May  5 02:21:06 2017 Antonin Rapini
+## Last update Fri May  5 20:04:22 2017 Antonin Rapini
 ##
 
 CFLAGS	+= -Wall -Werror -Wextra
@@ -14,17 +14,14 @@ CFLAGS 	+= -I ../solvers/include -I include -g3
 COMMONDIR =	../solvers
 
 SRC	=	$(COMMONDIR)/sources/my_get_maze.c	\
-		$(COMMONDIR)/sources/my_node_utils.c	\
-		$(COMMONDIR)/sources/my_dante_utils.c	\
-		$(COMMONDIR)/sources/my_path_utils.c	\
-		$(COMMONDIR)/sources/my_connection_utils.c	\
-		$(COMMONDIR)/sources/my_construct_graph.c	\
 		$(COMMONDIR)/utils/get_next_line.c	\
 		$(COMMONDIR)/utils/my_wordtab_utils.c	\
 		$(COMMONDIR)/utils/my_strlen.c		\
 		$(COMMONDIR)/utils/my_putchar.c		\
 		$(COMMONDIR)/utils/my_putstr.c		\
 		sources/my_dfs.c			\
+		sources/my_dnode_utils.c			\
+		sources/my_clear_visited.c		\
 		depth.c
 
 OBJ	=	$(SRC:.c=.o)
