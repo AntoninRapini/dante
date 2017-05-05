@@ -5,17 +5,15 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat Apr 29 17:30:33 2017 Antonin Rapini
-** Last update Sun Apr 30 22:07:28 2017 Antonin Rapini
+** Last update Mon May  1 18:49:21 2017 Antonin Rapini
 */
 
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdlib.h>
-#include "utils.h"
-#include "depth.h"
-
-#include <stdio.h>
+#include "solver_utils.h"
+#include "dante.h"
 
 int	my_check_maze(char **maze)
 {

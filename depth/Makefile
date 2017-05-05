@@ -5,20 +5,26 @@
 ## Login   <antonin.rapini@epitech.net>
 ## 
 ## Started on  Tue Nov 29 08:50:17 2016 Antonin Rapini
-## Last update Sun Apr 30 22:17:01 2017 Antonin Rapini
+## Last update Fri May  5 02:21:06 2017 Antonin Rapini
 ##
 
 CFLAGS	+= -Wall -Werror -Wextra
-CFLAGS 	+= -I include -g3
+CFLAGS 	+= -I ../solvers/include -I include -g3
 
-SRC	=	sources/my_depth_algo.c		\
-		sources/my_get_maze.c		\
-		sources/my_node_utils.c		\
-		utils/get_next_line.c		\
-		utils/my_wordtab_utils.c	\
-		utils/my_strlen.c		\
-		utils/my_putchar.c		\
-		utils/my_putstr.c		\
+COMMONDIR =	../solvers
+
+SRC	=	$(COMMONDIR)/sources/my_get_maze.c	\
+		$(COMMONDIR)/sources/my_node_utils.c	\
+		$(COMMONDIR)/sources/my_dante_utils.c	\
+		$(COMMONDIR)/sources/my_path_utils.c	\
+		$(COMMONDIR)/sources/my_connection_utils.c	\
+		$(COMMONDIR)/sources/my_construct_graph.c	\
+		$(COMMONDIR)/utils/get_next_line.c	\
+		$(COMMONDIR)/utils/my_wordtab_utils.c	\
+		$(COMMONDIR)/utils/my_strlen.c		\
+		$(COMMONDIR)/utils/my_putchar.c		\
+		$(COMMONDIR)/utils/my_putstr.c		\
+		sources/my_dfs.c			\
 		depth.c
 
 OBJ	=	$(SRC:.c=.o)
