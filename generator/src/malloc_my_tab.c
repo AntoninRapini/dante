@@ -1,33 +1,28 @@
 /*
-** malloc_my_tab.c for dante in /home/yoann.rey/dante/generator/
+** malloc_my_tab.c for dantr in /home/yoann.rey/dante/generator/src/
 **
 ** Made by Yoann Rey
 ** Login   <yoann.rey@epitech.eu>
 **
-** Started on  Thu Apr 20 15:09:26 2017 Yoann Rey
-** Last update Tue Apr 25 16:22:15 2017 Yoann Rey
+** Started on  Mon May  1 19:33:41 2017 Yoann Rey
+** Last update Tue May  2 16:37:30 2017 Yoann Rey
 */
 
-#include "dante.h"
+#include "maze.h"
 
-int	malloc_my_tab(char **tab)
+int	malloc_my_tab(int y, char **tab)
 {
   int	i;
-  int	j;
-  int	maze_len;
-  int	line_lenght;
+  int	len;
 
-  i = -1;
-  j = 0;
-  line_lenght = my_strlen(map[i]);
-  maze_len = my_tablen(tab);
-  if ((tab = malloc(sizeof(char *) * maze_len + 1)) == NULL)
+  i = 0;
+  if ((tab = malloc(sizeof(char *) * y + 1)) == NULL)
     return (1);
-  while (tab[++i])
+  while (tab[i])
     {
-      if ((map[i] = malloc(sizeof(char) * line_lenght + 1)) == NULL)
+      len = my_strlen(tab[i]);
+      if ((tab[i] = malloc(sizeof(char) * len + 1)) == NULL)
 	return (1);
-      j++;
     }
   return (0);
 }

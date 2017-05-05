@@ -1,0 +1,17 @@
+/*
+** coucouc.c for  in /home/yoann.rey/dante/generator
+** 
+** Made by Yoann Rey
+** Login   <yoann.rey@epitech.net>
+** 
+** Started on  Thu May  4 12:57:15 2017 Yoann Rey
+** Last update Thu May  4 12:57:15 2017 Yoann Rey
+*/
+
+#include <stdlib.h>
+
+int        my_rand(int a)
+{
+  a = rand();
+  
+}
