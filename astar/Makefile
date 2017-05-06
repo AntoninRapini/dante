@@ -5,7 +5,7 @@
 ## Login   <antonin.rapini@epitech.net>
 ## 
 ## Started on  Tue Nov 29 08:50:17 2016 Antonin Rapini
-## Last update Fri May  5 00:57:31 2017 Antonin Rapini
+## Last update Sat May  6 17:19:02 2017 Antonin Rapini
 ##
 
 CFLAGS	+= -Wall -Werror -Wextra
@@ -15,10 +15,9 @@ COMMONDIR =	../solvers
 
 SRC	=	$(COMMONDIR)/sources/my_get_maze.c	\
 		$(COMMONDIR)/sources/my_node_utils.c	\
-		$(COMMONDIR)/sources/my_dante_utils.c	\
-		$(COMMONDIR)/sources/my_path_utils.c	\
-		$(COMMONDIR)/sources/my_connection_utils.c	\
-		$(COMMONDIR)/sources/my_construct_graph.c	\
+		$(COMMONDIR)/sources/my_is_end.c	\
+		$(COMMONDIR)/sources/my_maze_utils.c	\
+		$(COMMONDIR)/sources/my_resolve_maze.c	\
 		$(COMMONDIR)/utils/get_next_line.c	\
 		$(COMMONDIR)/utils/my_wordtab_utils.c	\
 		$(COMMONDIR)/utils/my_strlen.c		\

@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:56:55 2017 Antonin Rapini
-** Last update Fri May  5 00:57:08 2017 Antonin Rapini
+** Last update Sat May  6 17:18:08 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -14,14 +14,13 @@
 
 int		main(int ac, char **av)
 {
-  t_dante	*dante;
+  char		**maze;
   
   if (ac == 2)
     {
-      if ((dante = my_create_dante(av[1])) != NULL)
+      if ((maze = my_get_maze(av[1])) != NULL)
 	{
-	  my_astar(dante->graph, dante->maze);
-	  my_free_dante(dante);
+	  my_astar(maze);
 	  return (0);
 	}
     }

@@ -5,12 +5,11 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Thu May  4 17:13:13 2017 Antonin Rapini
-** Last update Sat May  6 16:31:32 2017 Antonin Rapini
+** Last update Sat May  6 18:24:23 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "sources.h"
-#include "breadth.h"
 #include "dante.h"
 #include "solver_sources.h"
 #include "solver_utils.h"
@@ -71,6 +70,7 @@ t_queue		*my_bfs(char **maze)
       if (my_get_next_queue(maze, old, &new))
 	break;
       my_free_queue(old, 0);
+      old = NULL;
     }
   my_free_queue(old, 0);
   return (new);

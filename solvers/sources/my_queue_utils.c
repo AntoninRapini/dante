@@ -5,12 +5,11 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat May  6 03:49:19 2017 Antonin Rapini
-** Last update Sat May  6 16:31:50 2017 Antonin Rapini
+** Last update Sat May  6 18:19:42 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "dante.h"
-#include "breadth.h"
 #include "solver_sources.h"
 
 void		*my_free_queue(t_queue *queue, int free_nodes)
