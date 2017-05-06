@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:56:55 2017 Antonin Rapini
-** Last update Sat May  6 17:18:08 2017 Antonin Rapini
+** Last update Sat May  6 22:43:35 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -14,11 +14,11 @@
 
 int		main(int ac, char **av)
 {
-  char		**maze;
+  t_maze	*maze;
   
   if (ac == 2)
     {
-      if ((maze = my_get_maze(av[1])) != NULL)
+      if ((maze = my_create_maze(av[1])) != NULL)
 	{
 	  my_astar(maze);
 	  return (0);
