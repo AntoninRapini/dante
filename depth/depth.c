@@ -5,22 +5,30 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat Apr 29 17:26:06 2017 Antonin Rapini
-** Last update Fri May  5 19:59:33 2017 Antonin Rapini
+** Last update Sat May  6 16:00:31 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "solver_sources.h"
+#include "solver_utils.h"
 #include "sources.h"
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
-  char	**maze;
+  t_node	*path;
+  char		**maze;
   
   if (ac == 2)
     {
       if ((maze = my_get_maze(av[1])) != NULL)
 	{
-	  my_dfs(maze);
+	  if ((path = my_dfs(maze)) == NULL)
+	    my_putstr("no solution found\n");
+	  else
+	    {
+	      my_resolve_maze(maze, path);
+	      my_free_nodes(path);
+	    }
 	  return (0);
 	}
     }

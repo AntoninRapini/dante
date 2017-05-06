@@ -5,17 +5,15 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Thu Mar  2 17:18:06 2017 Antonin Rapini
-** Last update Fri May  5 20:00:23 2017 Antonin Rapini
+** Last update Sat May  6 05:36:13 2017 Antonin Rapini
 */
 
 #ifndef SOURCES_H_
 # define SOURCES_H_
 
-#include "depth.h"
+#include "dante.h"
 
-void	my_dfs(char **);
-t_dnode	*my_init_dnode(int, int, t_dnode *);
-void	*my_free_dnodes(t_dnode *);
+t_node	*my_dfs(char **);
 void	my_clear_visited(char **);
 
 #endif /* !SOURCES_H_ */
