@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Thu Mar  2 17:18:06 2017 Antonin Rapini
-** Last update Sat May  6 18:56:45 2017 Antonin Rapini
+** Last update Sat May  6 21:28:22 2017 Antonin Rapini
 */
 
 #ifndef SOLVER_SOURCES_H_
@@ -13,18 +13,17 @@
 
 #include "dante.h"
 
-
 // Helpers
-void	my_clear_visited(char **);
-int	has_choice(char **, int, int, int);
-int	is_valid_position(char **, int, int);
-int	my_is_end(char **, t_node *);
-void	my_resolve_maze(char **, t_node *);
-t_node	*my_get_next_node(char **, t_node *);
-void	my_mark_path(char **, t_node *);
+void	my_clear_visited(char *);
+int	has_choice(t_maze *, int, int, int);
+int	is_valid_position(t_maze *, int, int);
+int	my_is_end(t_maze *, int, int);
+void	my_resolve_maze(t_maze *, t_node *);
+t_node	*my_get_next_node(t_maze *, t_node *);
+void	my_mark_path(t_maze *, t_node *);
 
 // Maze
-t_maze	*my_get_maze(char *);
+t_maze	*my_create_maze(char *);
 t_maze	*my_init_maze();
 void	*my_free_maze(t_maze *);
 

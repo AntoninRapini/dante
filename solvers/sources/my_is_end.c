@@ -5,13 +5,13 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat May  6 05:32:16 2017 Antonin Rapini
-** Last update Sat May  6 05:33:41 2017 Antonin Rapini
+** Last update Sat May  6 22:22:38 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "dante.h"
 
-int my_is_end(char **maze, t_node *curr)
+int my_is_end(t_maze *maze, int y, int x)
 {
-  return (maze[curr->y + 1] == NULL && maze[curr->y][curr->x + 1] == '\0');
+  return (y == maze->y - 1 && x == maze->x - 1);
 }

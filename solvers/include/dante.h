@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Mon May  1 17:58:10 2017 Antonin Rapini
-** Last update Sat May  6 18:48:16 2017 Antonin Rapini
+** Last update Sat May  6 21:15:10 2017 Antonin Rapini
 */
 
 #ifndef DANTE_H_
@@ -15,6 +15,7 @@
 # define WALL_CHAR 'X'
 # define EMPTY_CHAR '*'
 # define PATH_CHAR 'o'
+# define POS(max, i, j) (((max + 1) * i) + j)
 
 typedef struct	s_node
 {
@@ -36,7 +37,8 @@ typedef struct	s_maze
 {
   int		x;
   int		y;
-  char		**maze;
+  int		size;
+  char		*maze;
 }		t_maze;
 
 #endif /* !DANTE_H_ */

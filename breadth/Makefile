@@ -5,19 +5,19 @@
 ## Login   <antonin.rapini@epitech.net>
 ## 
 ## Started on  Thu May  4 17:11:11 2017 Antonin Rapini
-## Last update Sat May  6 19:02:03 2017 Antonin Rapini
+## Last update Sat May  6 22:34:30 2017 Antonin Rapini
 ##
 
 CFLAGS	+= -Wall -Werror -Wextra
-CFLAGS 	+= -I ../solvers/include -I include -g3
+CFLAGS 	+= -I ../solvers/include -I include
 
 COMMONDIR =	../solvers
 
-SRC	=	$(COMMONDIR)/sources/my_get_maze.c		\
-		$(COMMONDIR)/sources/my_node_utils.c		\
+SRC	=	$(COMMONDIR)/sources/my_node_utils.c		\
 		$(COMMONDIR)/sources/my_is_end.c		\
 		$(COMMONDIR)/sources/my_helpers.c		\
 		$(COMMONDIR)/sources/my_resolve_maze.c		\
+		$(COMMONDIR)/sources/my_create_maze.c		\
 		$(COMMONDIR)/sources/my_maze_utils.c		\
 		$(COMMONDIR)/sources/my_queue_utils.c		\
 		$(COMMONDIR)/utils/get_next_line.c		\
@@ -33,7 +33,7 @@ OBJ	=	$(SRC:.c=.o)
 NAME	= 	solver
 
 $(NAME): $(OBJ)
-	gcc $(OBJ) -o $(NAME)
+	gcc -pg $(OBJ) -o $(NAME)
 
 all: $(NAME)
 
