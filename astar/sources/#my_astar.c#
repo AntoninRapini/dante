@@ -17,6 +17,11 @@ int my_distance(int x, int y, int x_size, int y_size)
   return (x_size - x + y_size - y);
 }
 
+void		my_add_nodes(t_maze *maze, t_queue **queue)
+{
+  
+}
+
 t_node		*my_astar(t_maze *maze)
 {
   t_queue	*queue;
@@ -26,7 +31,7 @@ t_node		*my_astar(t_maze *maze)
     queue->node->distance = my_distance(0, 0, maze->x, maze->y);
   while (queue != NULL && queue->distance->node != 0)
     {
-      my_add_nodes(&queue);
+      my_add_nodes(maze, &queue);
     }
   return (queue->node);
 }
