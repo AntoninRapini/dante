@@ -5,7 +5,7 @@
 ## Login   <antonin.rapini@epitech.net>
 ## 
 ## Started on  Thu May  4 17:11:11 2017 Antonin Rapini
-## Last update Sat May  6 22:34:30 2017 Antonin Rapini
+## Last update Sun May  7 04:00:09 2017 Antonin Rapini
 ##
 
 CFLAGS	+= -Wall -Werror -Wextra
@@ -33,7 +33,7 @@ OBJ	=	$(SRC:.c=.o)
 NAME	= 	solver
 
 $(NAME): $(OBJ)
-	gcc -pg $(OBJ) -o $(NAME)
+	gcc $(OBJ) -o $(NAME)
 
 all: $(NAME)
 

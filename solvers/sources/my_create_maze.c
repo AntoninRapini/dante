@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat May  6 19:20:57 2017 Antonin Rapini
-** Last update Sat May  6 22:22:48 2017 Antonin Rapini
+** Last update Sun May  7 02:45:59 2017 Antonin Rapini
 */
 
 #include <stdio.h>
@@ -62,8 +62,8 @@ t_maze		*my_create_maze(char *filename)
     return (NULL);
   if ((maze = my_init_maze()) == NULL)
     return (NULL);
-  if ((maze->size = my_get_filesize(file)) == -1)
-    return (NULL);
+  if ((maze->size = my_get_filesize(file)) <= 0)
+    return (my_free_maze(maze));
   if ((maze->maze = malloc(sizeof(char) * (maze->size + 1))) == NULL)
     return (my_free_maze(maze));
   fread(maze->maze, maze->size, 1, file);

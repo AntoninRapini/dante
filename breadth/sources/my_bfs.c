@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Thu May  4 17:13:13 2017 Antonin Rapini
-** Last update Sat May  6 22:33:43 2017 Antonin Rapini
+** Last update Sun May  7 03:53:30 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -18,16 +18,15 @@ int		my_queue_connections(t_maze *maze, t_queue **queue, t_node *node)
 {
   t_node	*tmp_node;
   t_queue	*tmp_queue;
-  int		has_next;
+  int		is_end;
 
-  has_next = 0;
-  while (node->next < 4)
+  is_end = 0;
+  while (node->next < 3)
     {
       node->next++;
       if ((tmp_node = my_get_next_node(maze, node)) != NULL)
 	{
 	  node->connection_count++;
-	  has_next++;
 	  maze->maze[POS(maze->x, tmp_node->y, tmp_node->x)] = VISITED_CHAR;
 	  if ((tmp_queue = my_init_queue(tmp_node)) != NULL)
 	    {
@@ -35,13 +34,13 @@ int		my_queue_connections(t_maze *maze, t_queue **queue, t_node *node)
 		tmp_queue->next = (*queue);
 	      (*queue) = tmp_queue;
 	      if (my_is_end(maze, tmp_node->y, tmp_node->x))
-		  has_next = -10;
+		is_end = 1;
 	    }
 	}
     }
-  if (has_next == 0)
+  if (node->connection_count == 0)
     my_free_nodepath(node);
-  return (has_next < 0);
+  return (is_end);
 }
 
 int	my_get_next_queue(t_maze *maze, t_queue *old, t_queue **new)
@@ -57,7 +56,7 @@ int	my_get_next_queue(t_maze *maze, t_queue *old, t_queue **new)
   return (status);
 }
 
-t_queue		*my_bfs(t_maze *maze)
+t_node		*my_bfs(t_maze *maze)
 {
   t_queue	*old;
   t_queue	*new;
@@ -73,5 +72,5 @@ t_queue		*my_bfs(t_maze *maze)
       old = NULL;
     }
   my_free_queue(old, 0);
-  return (new);
+  return (my_get_last(maze, new));
 }

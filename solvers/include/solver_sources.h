@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Thu Mar  2 17:18:06 2017 Antonin Rapini
-** Last update Sat May  6 21:28:22 2017 Antonin Rapini
+** Last update Sun May  7 03:52:54 2017 Antonin Rapini
 */
 
 #ifndef SOLVER_SOURCES_H_
@@ -28,6 +28,9 @@ t_maze	*my_init_maze();
 void	*my_free_maze(t_maze *);
 
 // Queue
+t_node	*my_get_last(t_maze *, t_queue *);
+void	my_show_queue(t_queue *);
+void	my_insert_node(t_queue *, t_queue **);
 void	*my_free_queue(t_queue *, int);
 t_queue *my_init_queue(t_node *);
 

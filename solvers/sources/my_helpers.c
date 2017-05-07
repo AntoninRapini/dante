@@ -5,12 +5,14 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat May  6 04:26:30 2017 Antonin Rapini
-** Last update Sat May  6 22:19:31 2017 Antonin Rapini
+** Last update Sun May  7 03:39:24 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "solver_sources.h"
 #include "dante.h"
+
+#include <stdio.h>
 
 void		my_mark_path(t_maze *maze, t_node *path)
 {
@@ -84,7 +86,7 @@ t_node	*my_get_next_node(t_maze *maze, t_node *curr)
   (*dir) += way;
   while (is_valid_position(maze, i, j))
     {
-      if (my_is_end(maze, i, j) || (has_choice(maze, i, j, curr->next)))
+      if (my_is_end(maze, i, j) || has_choice(maze, i, j, curr->next))
 	return (my_init_node(i, j, curr));
       (*dir) += way;
     }
