@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat May  6 19:20:57 2017 Antonin Rapini
-** Last update Sun May  7 02:45:59 2017 Antonin Rapini
+** Last update Mon May  8 02:28:45 2017 Antonin Rapini
 */
 
 #include <stdio.h>
@@ -33,6 +33,8 @@ int	my_check_maze(t_maze *maze)
     {
       if (maze->maze[i] == '\n')
 	{
+	  if (maze->maze[i + 1] == '\0')
+	    return (1);
 	  if ((i + 1 - maze->y) / maze->y != maze->x)
 	    return (1);
 	  maze->y++;

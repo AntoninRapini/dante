@@ -5,11 +5,11 @@
 ## Login   <antonin.rapini@epitech.net>
 ## 
 ## Started on  Thu May  4 17:11:11 2017 Antonin Rapini
-## Last update Sun May  7 04:00:09 2017 Antonin Rapini
+## Last update Mon May  8 02:09:02 2017 Antonin Rapini
 ##
 
 CFLAGS	+= -Wall -Werror -Wextra
-CFLAGS 	+= -I ../solvers/include -I include
+CFLAGS 	+= -I ../solvers/include -I include -g3
 
 COMMONDIR =	../solvers
 

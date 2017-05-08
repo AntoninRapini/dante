@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun Apr 30 03:50:19 2017 Antonin Rapini
-** Last update Sat May  6 21:26:18 2017 Antonin Rapini
+** Last update Mon May  8 02:03:54 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -17,7 +17,7 @@ t_node		*my_dfs(t_maze *maze)
   t_node	*curr;
   t_node	*new;
 
-  curr = my_init_node(0, 0, NULL);
+  curr = maze->maze[0] == PATH_CHAR ? my_init_node(0, 0, NULL) : NULL;
   maze->maze[0] = VISITED_CHAR;
   while (curr != NULL && !my_is_end(maze, curr->y, curr->x))
     {
