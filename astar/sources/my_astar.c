@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:58:12 2017 Antonin Rapini
-** Last update Mon May  8 02:29:39 2017 Antonin Rapini
+** Last update Mon May  8 02:33:41 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -51,7 +51,7 @@ t_node		*my_astar(t_maze *maze)
   t_queue	*queue;
 
   queue = maze->maze[0] == PATH_CHAR ?
-    my_init_queue(my_init_node(0,0, NULL)) : NULL;
+    my_init_queue(my_init_node(0, 0, NULL)) : NULL;
   if (queue)
     queue->node->distance = my_distance(0, 0, maze->x, maze->y);
   while (queue != NULL && queue->node->distance != 0)
