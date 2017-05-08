@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Thu May  4 17:13:13 2017 Antonin Rapini
-** Last update Mon May  8 02:08:12 2017 Antonin Rapini
+** Last update Mon May  8 02:36:55 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -62,7 +62,8 @@ t_node		*my_bfs(t_maze *maze)
   t_queue	*new;
 
   old = NULL;
-  new = my_init_queue(my_init_node(0, 0, NULL));
+  new = maze->maze[0] == PATH_CHAR ?
+    my_init_queue(my_init_node(0, 0, NULL)) : NULL;
   while (new != NULL && !my_is_end(maze, new->node->y, new->node->x))
     {
       old = new;
