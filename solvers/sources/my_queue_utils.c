@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sat May  6 03:49:19 2017 Antonin Rapini
-** Last update Sun May  7 03:57:11 2017 Antonin Rapini
+** Last update Tue May  9 06:12:25 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -35,9 +35,12 @@ void		my_insert_node(t_queue *new, t_queue **queue)
 {
   t_queue	*start;
   t_queue	*tmp;
+  int		total;
 
+  total = new->node->distance + new->node->cost;
   start = (*queue);
-  if ((*queue) == NULL || new->node->distance < (*queue)->node->distance)
+  if ((*queue) == NULL ||
+      total < (*queue)->node->distance + (*queue)->node->cost)
     {
       (*queue) = new;
       new->next = start;
@@ -45,7 +48,7 @@ void		my_insert_node(t_queue *new, t_queue **queue)
     }
   while (start->next != NULL)
     {
-      if (new->node->distance < start->next->node->distance)
+      if (total < start->next->node->distance + start->next->node->cost)
 	{
 	  tmp = start->next;
 	  start->next = new;
@@ -57,28 +60,28 @@ void		my_insert_node(t_queue *new, t_queue **queue)
   start->next = new;
 }
 
-  void		*my_free_queue(t_queue *queue, int free_nodes)
-  {
-    t_queue	*tmp;
+void		*my_free_queue(t_queue *queue, int free_nodes)
+{
+  t_queue	*tmp;
 
-    while (queue != NULL)
-      {
-	tmp = queue;
-	queue = queue->next;
-	if (free_nodes)
-	  my_free_nodepath(tmp->node);
-	free(tmp);
-      }
+  while (queue != NULL)
+    {
+      tmp = queue;
+      queue = queue->next;
+      if (free_nodes)
+	my_free_nodepath(tmp->node);
+      free(tmp);
+    }
+  return (NULL);
+}
+
+t_queue		*my_init_queue(t_node *node)
+{
+  t_queue	*queue;
+
+  if ((queue = malloc(sizeof(t_queue))) == NULL)
     return (NULL);
-  }
-
-  t_queue		*my_init_queue(t_node *node)
-  {
-    t_queue	*queue;
-
-    if ((queue = malloc(sizeof(t_queue))) == NULL)
-      return (NULL);
-    queue->node = node;
-    queue->next = NULL;
-    return (queue);
-  }
+  queue->node = node;
+  queue->next = NULL;
+  return (queue);
+}

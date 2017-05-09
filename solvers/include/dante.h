@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Mon May  1 17:58:10 2017 Antonin Rapini
-** Last update Sat May  6 21:15:10 2017 Antonin Rapini
+** Last update Tue May  9 06:07:04 2017 Antonin Rapini
 */
 
 #ifndef DANTE_H_
@@ -23,6 +23,7 @@ typedef struct	s_node
   int		y;
   int		next;
   int		connection_count;
+  int		cost;
   int		distance;
   struct s_node	*previous;
 }		t_node;

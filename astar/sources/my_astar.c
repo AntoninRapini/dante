@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:58:12 2017 Antonin Rapini
-** Last update Mon May  8 02:33:41 2017 Antonin Rapini
+** Last update Tue May  9 06:20:52 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -15,7 +15,7 @@
 
 int my_distance(int x, int y, int x_size, int y_size)
 {
-  return ((x_size - 1) - x + (y_size - 1) - y);
+  return (x_size - x + y_size - y);
 }
 
 void		my_add_nodes(t_maze *maze, t_queue **queue)
@@ -35,8 +35,10 @@ void		my_add_nodes(t_maze *maze, t_queue **queue)
       curr->next++;
       if ((new_node = my_get_next_node(maze, curr)) != NULL)
 	{
+	  new_node->cost = curr->cost +
+	    my_distance(curr->x, curr->y, new_node->x, new_node->y);
 	  new_node->distance =
-	    my_distance(new_node->x, new_node->y, maze->x, maze->y);
+	    my_distance(new_node->x, new_node->y, maze->x - 1, maze->y - 1);
 	  curr->connection_count++;
 	  if ((new_queue = my_init_queue(new_node)) != NULL)
 	    my_insert_node(new_queue, queue);
@@ -50,7 +52,7 @@ t_node		*my_astar(t_maze *maze)
 {
   t_queue	*queue;
 
-  queue = maze->maze[0] == PATH_CHAR ?
+  queue = maze->maze[0] == EMPTY_CHAR ?
     my_init_queue(my_init_node(0, 0, NULL)) : NULL;
   if (queue)
     queue->node->distance = my_distance(0, 0, maze->x, maze->y);

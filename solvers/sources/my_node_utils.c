@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun Apr 30 03:36:49 2017 Antonin Rapini
-** Last update Sat May  6 16:33:52 2017 Antonin Rapini
+** Last update Tue May  9 06:07:57 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
@@ -47,6 +47,8 @@ t_node		*my_init_node(int y, int x, t_node *previous)
   node->previous = previous;
   node->next = -1;
   node->connection_count = 0;
+  node->distance = 0;
+  node->cost = 0;
   node->x = x;
   node->y = y;
   return (node);
