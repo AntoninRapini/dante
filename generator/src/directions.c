@@ -4,32 +4,76 @@
 ** Made by Yoann Rey
 ** Login   <yoann.rey@epitech.eu>
 **
-** Started on  Thu May  4 14:36:03 2017 Yoann Rey
-** Last update Thu May  4 15:53:05 2017 Yoann Rey
+** Started on  Wed May 10 15:46:27 2017 Yoann Rey
+** Last update Thu May 11 03:08:17 2017 Yoann Rey
 */
 
 #include "maze.h"
 
-void,	up_move(t_maze *map)
+int	north(char **map, int x, int y)
 {
-  int	x;
-  int	y;
+  if (map[y - 1])
+    {
+      if ((!(map[y - 2]) || (map[y - 2] && map[y - 2][x] == 'X')) &&
+	  (map[y - 1][x - 1] == 'X') && (map[y - 1][x + 1] == 'X'))
+	{
+	  map[y - 2][x] = '*';
+	  map[y - 1][x] = '*';
+	  return (1);
+	}
+    }
+  return (0);
+    }
 
-  x = (y = 0);
-  while(map->maze[x])
-  if (map->maze[x][y - 1] == 'X')
+int	south(char **map, int x, int y)
+{
+  if (map[y + 1])
     {
-      map->maze[x][y - 1] == '*';
-      y--;
+      if ((!(map[y + 2]) || (map[y + 2] && map[y + 2][x] == 'X')) &&
+	  (map[y + 1][x + 1] == 'X') && (map[y + 1][x + 1] == 'X'))
+	{
+	  map[y + 1][x] = '*';
+	  map[y + 2][x] = '*';
+	  return (1);
+	}
     }
-  else if (map->maze[x][y - 1] == NULL)
-    {
-      if (map->maze[x - 1][y] == NULL)
-	x++;
-    }
+  return (0);
 }
 
-void	down_move(t_maze *map)
+int	west(char **map, int x, int y)
 {
+  if (x - 1 >= 0)
+    {
+      if ((x - 2 < 0 || (x - 2 >= 0 && map[y][x - 2] == 'X')) &&
+	  (map[y - 1][x - 1] == 'X') && (map[y + 1][x + 1] == 'X'))
+	{
+	  map[y][x - 2] = '*';
+	  map[y][x - 1] = '*';
+	  return (1);
+	}
+    }
+  return (0);
+}
 
+int	east(char **map, int x, int y)
+{
+  if (map[y][x + 1] != '\0')
+    {
+      if (((map[y][x + 2] == '\0') || map[y][x + 2] == 'X') &&
+	  (map[y - 1][x + 1] == 'X') && (map[y + 1][x + 1] == 'X'))
+	{
+	  map[y][x + 1] = '*';
+	  map[y][x + 2] = '*';
+	  return (1);
+	}
+    }
+  return (0);
+}
+
+void	init_func(int (*func[4])(char **, int, int))
+{
+  func[0] = &north;
+  func[1] = &south;
+  func[2] = &west;
+  func[3] = &east;
 }

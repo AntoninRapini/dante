@@ -5,18 +5,29 @@
 ** Login   <yoann.rey@epitech.eu>
 **
 ** Started on  Mon May  1 19:33:41 2017 Yoann Rey
-** Last update Tue May  2 16:37:30 2017 Yoann Rey
+** Last update Thu May 11 02:57:32 2017 Yoann Rey
 */
 
 #include "maze.h"
 
-int	malloc_my_tab(int y, char **tab)
+int	my_tablen(char **tab)
+{
+  int	i;
+
+  i = 0;
+  if (!tab)
+  while (tab[i])
+    ++i;
+  return (i);
+}
+
+int	malloc_my_tab(char **tab)
 {
   int	i;
   int	len;
 
   i = 0;
-  if ((tab = malloc(sizeof(char *) * y + 1)) == NULL)
+  if ((tab = malloc(sizeof(char *) * my_tablen(tab) + 1)) == NULL)
     return (1);
   while (tab[i])
     {
