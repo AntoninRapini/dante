@@ -5,13 +5,15 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:58:12 2017 Antonin Rapini
-** Last update Tue May  9 06:20:52 2017 Antonin Rapini
+** Last update Fri May 12 14:16:29 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "dante.h"
 #include "solver_sources.h"
 #include "solver_utils.h"
+
+#include <stdio.h>
 
 int my_distance(int x, int y, int x_size, int y_size)
 {
@@ -27,7 +29,6 @@ void		my_add_nodes(t_maze *maze, t_queue **queue)
 
   tmp = (*queue)->next;
   curr = (*queue)->node;
-  maze->maze[POS(maze->x, curr->y, curr->x)] = VISITED_CHAR;
   free((*queue));
   (*queue) = tmp;
   while (curr->next < 3)
@@ -35,6 +36,7 @@ void		my_add_nodes(t_maze *maze, t_queue **queue)
       curr->next++;
       if ((new_node = my_get_next_node(maze, curr)) != NULL)
 	{
+	  maze->maze[POS(maze->x, new_node->y, new_node->x)] = VISITED_CHAR;
 	  new_node->cost = curr->cost +
 	    my_distance(curr->x, curr->y, new_node->x, new_node->y);
 	  new_node->distance =
@@ -56,7 +58,10 @@ t_node		*my_astar(t_maze *maze)
     my_init_queue(my_init_node(0, 0, NULL)) : NULL;
   if (queue)
     queue->node->distance = my_distance(0, 0, maze->x, maze->y);
+  maze->maze[POS(maze->x, 0, 0)] = VISITED_CHAR;
   while (queue != NULL && queue->node->distance != 0)
-    my_add_nodes(maze, &queue);
+    {
+      my_add_nodes(maze, &queue);
+    }
   return (my_get_last(maze, queue));
 }
