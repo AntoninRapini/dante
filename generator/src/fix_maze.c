@@ -5,11 +5,29 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 07:44:22 2017 Antonin Rapini
-** Last update Sun May 14 18:08:36 2017 Antonin Rapini
+** Last update Sun May 14 20:53:20 2017 Antonin Rapini
 */
 
 #include "maze.h"
 
+void	clear_visited(char **maze)
+{
+  int	i;
+  int	j;
+
+  i = 0;
+  while (maze[i])
+    {
+      j = 0;
+      while (maze[i][j])
+	{
+	  if (maze[i][j] == VISITED_CHAR)
+	    maze[i][j] = PATH_CHAR;
+	  j++;
+	}
+      i++;
+    }
+}
 void	fix_maze(t_maze *maze)
 {
   int	random;
