@@ -5,7 +5,7 @@
 ## Login   <yoann.rey@epitech.net>
 ##
 ## Started on  Thu Apr 20 14:13:08 2017 Yoann Rey
-## Last update Sat May  6 22:48:25 2017 Antonin Rapini
+## Last update Sun May 14 07:58:47 2017 Antonin Rapini
 ##
 
 all:
@@ -13,12 +13,14 @@ all:
 	make -C breadth/
 	make -C depth/
 	make -C tournament/
+	make -C generator/
 
 clean:
 	make clean -C astar/
 	make clean -C breadth/
 	make clean -C depth/
 	make clear -C tournament/
+	make clear -C generator/
 
 
 fclean:
@@ -26,6 +28,7 @@ fclean:
 	make fclean -C breadth/
 	make fclean -C depth/
 	make fclean -C tournament/
+	make fclean -C generator/
 
 re: fclean all
 
