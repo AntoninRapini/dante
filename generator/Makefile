@@ -5,25 +5,27 @@
 ## Login   <yoann.rey@epitech.net>
 ##
 ## Started on  Thu Apr 20 14:13:08 2017 Yoann Rey
-## Last update Fri May 12 14:03:49 2017 Yoann Rey
+## Last update Sun May 14 07:52:53 2017 Antonin Rapini
 ##
 
-CC	= gcc
+CFLAGS += 	-I includes/
+CFLAGS += 	-g3 -Werror -Wall -Wextra
 
-RM	= rm -f
+CC	= 	gcc
 
-SRCS	= src/my_maze.c		\
-	  src/malloc_my_tab.c	\
-	  src/my_getnbr.c	\
-	  src/directions.c	\
-	  src/put_nbr.c		\
-	  src/generations.c	\
-	  src/display.c
+RM	= 	rm -f
 
-OBJS	= $(SRCS:.c=.o)
+SRCS	= 	src/my_put_nbr.c	\
+	  	src/my_getnbr.c		\
+		src/my_wordtab_utils.c	\
+		src/my_generate_maze.c	\
+		src/my_node_utils.c	\
+		src/fix_odd.c		\
+		src/my_maze_utils.c	\
+	  	src/display.c		\
+		generator.c
 
-CFLAGS += -I includes/
-CFLAGS += -g3 -W -Wall -Wextra
+OBJS	= 	$(SRCS:.c=.o)
 
 NAME	= generator
 

@@ -1,29 +1,32 @@
 /*
-** my_getnbr.c for  in /home/yoann.rey/CPool_Day04
-**
-** Made by Yoann Rey
-** Login   <yoann.rey@epitech.net>
-**
-** Started on  Sun Oct  9 08:48:17 2016 Yoann Rey
-** Last update Fri May 12 13:49:18 2017 Yoann Rey
+** my_getnbr.c for my_getnbr in /home/antonin.rapini/UnixSystemProgrammation/PSU_2016_my_printf/utils
+** 
+** Made by Antonin Rapini
+** Login   <antonin.rapini@epitech.net>
+** 
+** Started on  Sun Nov 20 00:36:16 2016 Antonin Rapini
+** Last update Fri Apr 28 21:34:48 2017 Antonin Rapini
 */
 
-#include "maze.h"
-
-int	my_getnbr_bis(char *str, int i, int nb1, int nb2)
+int my_getnbr_rec(char *str, int nbr, int init, int *ret)
 {
-  if (str[i] == '-' && !(str[i - 1] >= '0' && str[i - 1] <= '9'))
-    my_getnbr_bis(str, i + 1, nb1, nb2 * - 1);
-  else if (str[i] >= '0' && str[i] <= '9')
-    my_getnbr_bis(str, i + 1, (nb1 * 10) + (str[i] - 48), nb2);
+  if (*str == '-')
+    return (-my_getnbr_rec(str + 1, nbr, init, ret));
+  else if (*str >= '0' && *str <= '9')
+    return (my_getnbr_rec(str + 1, (nbr * 10) + (*str - 48), 1, ret));
+  else if ((*str == '\0' || *str == ' ' || *str == '#') && init > 0)
+      return (nbr);
   else
-    return (nb1 * nb2);
+    {
+      if (ret)
+	(*ret) = -1;
+      return (nbr);
+    }
 }
 
-int	my_getnbr(char *str)
+int my_getnbr(char *str, int *ret)
 {
-  int	i;
-
-  i = my_getnbr_bis(str, 0, 0, 1);
-  return (i);
+  if (ret)
+    (*ret) = 0;
+  return (my_getnbr_rec(str, 0, 0, ret));
 }

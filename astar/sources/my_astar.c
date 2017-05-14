@@ -5,15 +5,13 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:58:12 2017 Antonin Rapini
-** Last update Fri May 12 14:16:29 2017 Antonin Rapini
+** Last update Sun May 14 04:49:32 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "dante.h"
 #include "solver_sources.h"
 #include "solver_utils.h"
-
-#include <stdio.h>
 
 int my_distance(int x, int y, int x_size, int y_size)
 {

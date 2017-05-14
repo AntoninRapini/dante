@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.eu>
 **
 ** Started on  Wed May 10 15:46:27 2017 Yoann Rey
-** Last update Fri May 12 15:15:10 2017 Yoann Rey
+** Last update Sun May 14 06:06:07 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -57,21 +57,18 @@ int	west(char **map, int x, int y)
   return (0);
 }
 
-int	east(char **map, int x, int y)
+int east(t_node **node, t_maze **maze)
 {
   if (map[y][x + 1] != '\0')
     {
-      put_nbr(y);
-      if (((map[y][x + 2] == '\0') || map[y][x + 2] != 'X') &&
-	  (map[y - 1][x + 1] != 'X') && (map[y + 1][x + 1] != 'X'))
+      my_put_nbr(y);
+      if (map[y][x + 2] != 'X')
 	return (1);
-      else
-	{
-	  map[y][x + 1] = '*';
-	  map[y][x + 2] = '*';
-	}
+      map[y][x + 1] = '*';
+      map[y][x + 2] = '*';
+      return (0);
     }
-  return (0);
+  return (1);
 }
 
 void	init_func(int (*func[4])(char **, int, int))
