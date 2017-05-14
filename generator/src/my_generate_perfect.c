@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 18:10:52 2017 Antonin Rapini
-** Last update Sun May 14 21:12:04 2017 Antonin Rapini
+** Last update Sun May 14 22:02:35 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -43,9 +43,9 @@ void		my_connect_random_visited(t_node *node, t_maze *maze)
   while (!is_visited_neighbour(node->x + dir[random].x,
 			       node->y + dir[random].y, maze))
     random = rand() % 4;
-  maze->maze[node->y][node->x] = PATH_CHAR;
+  maze->maze[node->y][node->x] = EMPTY_CHAR;
   maze->maze[node->y + dir[random].y / 2][node->x + dir[random].x / 2]
-    = PATH_CHAR;
+    = EMPTY_CHAR;
 }
 
 void		my_connect_random(t_node **frontiers, t_maze *maze)
@@ -63,7 +63,7 @@ void		my_generate_perfect(t_maze *maze)
   t_node	*frontiers;
 
   frontiers = NULL;
-  maze->maze[0][0] = PATH_CHAR;
+  maze->maze[0][0] = EMPTY_CHAR;
   my_add_neighbours(0, 0, &frontiers, maze);
   while (frontiers != NULL)
     my_connect_random(&frontiers, maze);

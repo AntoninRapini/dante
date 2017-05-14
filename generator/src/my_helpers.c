@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 05:04:14 2017 Antonin Rapini
-** Last update Sun May 14 20:07:34 2017 Antonin Rapini
+** Last update Sun May 14 22:03:21 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -21,7 +21,7 @@ static t_pos const dirs[] =
 int is_visited_neighbour(int x, int y,  t_maze *maze)
 {
   return (x >= 0 && y >= 0 && x < maze->x && y < maze->y
-	  && maze->maze[y][x] == PATH_CHAR);
+	  && maze->maze[y][x] == EMPTY_CHAR);
 }
 
 int is_valid(int x, int y,  t_maze *maze)
@@ -34,8 +34,8 @@ int try_direction(t_node **node, t_maze *maze, int x, int y)
 {
   if (is_valid((*node)->x + x, (*node)->y + y, maze))
     {
-      maze->maze[(*node)->y + (y / 2)][(*node)->x + (x / 2)] = PATH_CHAR;
-      maze->maze[(*node)->y + y][(*node)->x + x] = PATH_CHAR;
+      maze->maze[(*node)->y + (y / 2)][(*node)->x + (x / 2)] = EMPTY_CHAR;
+      maze->maze[(*node)->y + y][(*node)->x + x] = EMPTY_CHAR;
       (*node) = my_init_node((*node)->y + y, (*node)->x + x, *node);
       return (0);
     }

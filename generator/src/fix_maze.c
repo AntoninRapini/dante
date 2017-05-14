@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 07:44:22 2017 Antonin Rapini
-** Last update Sun May 14 21:09:28 2017 Antonin Rapini
+** Last update Sun May 14 22:02:55 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -18,9 +18,9 @@ void	fix_maze(t_maze *maze)
 
   x = maze->x - 1;
   y = maze->y - 1;
-  while (maze->maze[y][x] != PATH_CHAR)
+  while (maze->maze[y][x] != EMPTY_CHAR)
     {
-      maze->maze[y][x] = PATH_CHAR;
+      maze->maze[y][x] = EMPTY_CHAR;
       if (y - 1 >= 0 && x - 1 >= 0)
 	{
 	  random = rand() % 2;
