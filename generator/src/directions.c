@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.eu>
 **
 ** Started on  Wed May 10 15:46:27 2017 Yoann Rey
-** Last update Thu May 11 03:08:17 2017 Yoann Rey
+** Last update Fri May 12 15:15:10 2017 Yoann Rey
 */
 
 #include "maze.h"
@@ -44,12 +44,14 @@ int	west(char **map, int x, int y)
 {
   if (x - 1 >= 0)
     {
-      if ((x - 2 < 0 || (x - 2 >= 0 && map[y][x - 2] == 'X')) &&
+      if (((x - 2 > 0 && map[y][x - 2] == 'X')) &&
 	  (map[y - 1][x - 1] == 'X') && (map[y + 1][x + 1] == 'X'))
+	return (1);
+      else
 	{
+	  my_putchar('h');
 	  map[y][x - 2] = '*';
 	  map[y][x - 1] = '*';
-	  return (1);
 	}
     }
   return (0);
@@ -59,12 +61,14 @@ int	east(char **map, int x, int y)
 {
   if (map[y][x + 1] != '\0')
     {
-      if (((map[y][x + 2] == '\0') || map[y][x + 2] == 'X') &&
-	  (map[y - 1][x + 1] == 'X') && (map[y + 1][x + 1] == 'X'))
+      put_nbr(y);
+      if (((map[y][x + 2] == '\0') || map[y][x + 2] != 'X') &&
+	  (map[y - 1][x + 1] != 'X') && (map[y + 1][x + 1] != 'X'))
+	return (1);
+      else
 	{
 	  map[y][x + 1] = '*';
 	  map[y][x + 2] = '*';
-	  return (1);
 	}
     }
   return (0);

@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.eu>
 **
 ** Started on  Wed May 10 00:57:35 2017 Yoann Rey
-** Last update Thu May 11 03:02:34 2017 Yoann Rey
+** Last update Fri May 12 13:52:23 2017 Yoann Rey
 */
 
 #include "maze.h"
@@ -14,10 +14,10 @@ char	**generations(char **map, int ac)
 {
   int	(*func[4])(char **, int, int);
 
-  //map = malloc_my_tab(map);
+  map = malloc_my_tab(map);
   init_func(func);
   my_putchar('g');
-  if (ac == 4)
+  if (ac == 3)
     map = generator_perf(map, func);
   my_putchar('t');
   return (map);
@@ -43,6 +43,7 @@ int	generator_perf(char **map, int (*func[4])(char **, int, int))
   int	random;
 
   random = my_random();
+  printf("%i", random);
   if ((random = 0))
     {
       my_putchar('h');

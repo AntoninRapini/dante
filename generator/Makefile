@@ -5,7 +5,7 @@
 ## Login   <yoann.rey@epitech.net>
 ##
 ## Started on  Thu Apr 20 14:13:08 2017 Yoann Rey
-## Last update Thu May 11 03:00:12 2017 Yoann Rey
+## Last update Fri May 12 14:03:49 2017 Yoann Rey
 ##
 
 CC	= gcc
@@ -16,6 +16,7 @@ SRCS	= src/my_maze.c		\
 	  src/malloc_my_tab.c	\
 	  src/my_getnbr.c	\
 	  src/directions.c	\
+	  src/put_nbr.c		\
 	  src/generations.c	\
 	  src/display.c
 

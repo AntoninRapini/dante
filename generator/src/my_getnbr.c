@@ -5,19 +5,19 @@
 ** Login   <yoann.rey@epitech.net>
 **
 ** Started on  Sun Oct  9 08:48:17 2016 Yoann Rey
-** Last update Tue May  2 18:20:12 2017 Yoann Rey
+** Last update Fri May 12 13:49:18 2017 Yoann Rey
 */
 
 #include "maze.h"
 
-int	my_getnbr_bis(char *str, int a, int b, int d)
+int	my_getnbr_bis(char *str, int i, int nb1, int nb2)
 {
-  if (str[a] == '-' && !(str[a - 1] >= '0' && str[a - 1] <= '9'))
-    my_getnbr_bis(str, a + 1, b, d * - 1);
-  else if (str[a] >= '0' && str[a] <= '9')
-    my_getnbr_bis(str, a + 1, (b * 10) + (str[a] - 48), d);
+  if (str[i] == '-' && !(str[i - 1] >= '0' && str[i - 1] <= '9'))
+    my_getnbr_bis(str, i + 1, nb1, nb2 * - 1);
+  else if (str[i] >= '0' && str[i] <= '9')
+    my_getnbr_bis(str, i + 1, (nb1 * 10) + (str[i] - 48), nb2);
   else
-    return (b * d);
+    return (nb1 * nb2);
 }
 
 int	my_getnbr(char *str)

@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.eu>
 **
 ** Started on  Wed May 10 17:30:36 2017 Yoann Rey
-** Last update Thu May 11 03:08:10 2017 Yoann Rey
+** Last update Fri May 12 15:15:29 2017 Yoann Rey
 */
 
 #include "maze.h"
@@ -23,7 +23,7 @@ char	**create_maze(int w, int h)
     {
       map->x = 0;
       map->maze[map->y] = malloc(sizeof(char) * (w + 1));
-      (map->maze[map->y][w] = '\0');
+      map->maze[map->y][w] = '\0';
       while (map->x < w)
 	{
 	  (map->maze[map->y][map->x] = 'X');
@@ -66,13 +66,14 @@ int	main(int ac, char **av)
   t_maze	*map;
   char 		**my_maze;
 
-  if (ac != 3 && ac != 4 && strcmp(av[3], "perfect"))
+  if (ac != 3)
     return (1);
   if ((map = malloc(sizeof(t_maze))) == NULL)
     return (1);
   init_random();
   my_maze = create_maze(my_getnbr(av[1]), my_getnbr(av[2]));
   display_maze(my_maze);
+  east(my_maze, my_getnbr(av[1]), my_getnbr(av[2]));
   free_map(my_maze);
   free(map);
   return (0);
