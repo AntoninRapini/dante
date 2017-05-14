@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.net>
 **
 ** Started on  Wed Apr 26 17:10:35 2017 Yoann Rey
-** Last update Sun May 14 18:07:27 2017 Antonin Rapini
+** Last update Sun May 14 18:45:36 2017 Antonin Rapini
 */
 
 #ifndef MAZE_H_
@@ -56,10 +56,15 @@ void *my_free_maze(t_maze *);
 void fix_maze(t_maze *);
 
 /* my_node_utils.c */
-t_node *my_init_node(int, int, t_node *, t_maze *);
+t_node *my_init_node(int, int, t_node *);
 
-/* my_generate_maze.c */
-void my_generate_maze(t_maze *);
+/* my_generate_imperfect.c */
+void my_generate_imperfect(t_maze *);
+
+/* my_generate_perfect.c */
+void my_generate_perfect(t_maze *);
+
+/* my_helpers.c */
 int my_move_next(t_node **, t_maze *);
 int try_direction(t_node **, t_maze *, int, int);
 int is_valid(t_node *, t_maze *, int, int);

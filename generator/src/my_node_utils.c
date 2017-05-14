@@ -5,12 +5,12 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 05:08:05 2017 Antonin Rapini
-** Last update Sun May 14 07:52:29 2017 Antonin Rapini
+** Last update Sun May 14 18:24:29 2017 Antonin Rapini
 */
 
 #include "maze.h"
 
-t_node		*my_init_node(int y, int x, t_node *previous, t_maze *maze)
+t_node		*my_init_node(int y, int x, t_node *previous)
 {
   t_node	*node;
 
@@ -19,6 +19,5 @@ t_node		*my_init_node(int y, int x, t_node *previous, t_maze *maze)
   node->y = y;
   node->x = x;
   node->previous = previous;
-  maze->maze[y][x] = PATH_CHAR;
   return (node);
 }

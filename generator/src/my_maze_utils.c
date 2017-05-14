@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 04:04:24 2017 Antonin Rapini
-** Last update Sun May 14 04:34:27 2017 Antonin Rapini
+** Last update Sun May 14 18:56:19 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -49,7 +49,7 @@ t_maze		*my_init_maze()
 {
   t_maze	*maze;
 
-  if ((maze = malloc(sizeof(t_maze *))) == NULL)
+  if ((maze = malloc(sizeof(t_maze))) == NULL)
     return (NULL);
   maze->maze = NULL;
   maze->x = 0;
