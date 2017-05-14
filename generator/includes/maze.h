@@ -5,7 +5,7 @@
 ** Login   <yoann.rey@epitech.net>
 **
 ** Started on  Wed Apr 26 17:10:35 2017 Yoann Rey
-** Last update Sun May 14 07:53:21 2017 Antonin Rapini
+** Last update Sun May 14 18:07:27 2017 Antonin Rapini
 */
 
 #ifndef MAZE_H_
@@ -53,7 +53,7 @@ t_maze *my_create_maze(int, char **);
 void *my_free_maze(t_maze *);
 
 /* fix_odd.c */
-void fix_odd(t_node **, t_maze *);
+void fix_maze(t_maze *);
 
 /* my_node_utils.c */
 t_node *my_init_node(int, int, t_node *, t_maze *);
