@@ -5,11 +5,11 @@
 ## Login   <yoann.rey@epitech.net>
 ##
 ## Started on  Thu Apr 20 14:13:08 2017 Yoann Rey
-## Last update Sun May 14 18:43:54 2017 Antonin Rapini
+## Last update Sun May 14 21:11:17 2017 Antonin Rapini
 ##
 
 CFLAGS += 	-I includes/
-CFLAGS += 	-g3 -Werror -Wall -Wextra
+CFLAGS += 	-Werror -Wall -Wextra
 
 CC	= 	gcc
 

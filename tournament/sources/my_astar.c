@@ -5,15 +5,13 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Fri May  5 00:58:12 2017 Antonin Rapini
-** Last update Fri May 12 14:16:29 2017 Antonin Rapini
+** Last update Sun May 14 21:08:13 2017 Antonin Rapini
 */
 
 #include <stdlib.h>
 #include "dante.h"
 #include "solver_sources.h"
 #include "solver_utils.h"
-
-#include <stdio.h>
 
 int my_distance(int x, int y, int x_size, int y_size)
 {
@@ -31,14 +29,13 @@ void		my_add_nodes(t_maze *maze, t_queue **queue)
   curr = (*queue)->node;
   free((*queue));
   (*queue) = tmp;
-  while (curr->next < 3)
+  while (curr->next++ < 3)
     {
-      curr->next++;
       if ((new_node = my_get_next_node(maze, curr)) != NULL)
 	{
 	  maze->maze[POS(maze->x, new_node->y, new_node->x)] = VISITED_CHAR;
-	  new_node->cost = curr->cost +
-	    my_distance(curr->x, curr->y, new_node->x, new_node->y);
+	  new_node->cost = curr->cost
+	    + my_distance(curr->x, curr->y, new_node->x, new_node->y);
 	  new_node->distance =
 	    my_distance(new_node->x, new_node->y, maze->x - 1, maze->y - 1);
 	  curr->connection_count++;

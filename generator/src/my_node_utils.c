@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 05:08:05 2017 Antonin Rapini
-** Last update Sun May 14 20:57:39 2017 Antonin Rapini
+** Last update Sun May 14 21:13:16 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -26,8 +26,7 @@ t_node          *remove_random_node(t_node **frontiers)
       tmp = tmp->previous;
     }
   len = (rand() % len) + 1;
-  tmp = *frontiers;
-  chosen = *frontiers;
+  tmp = chosen = *frontiers;
   if (len == 1)
     (*frontiers) = (*frontiers)->previous;
   else

@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 18:10:52 2017 Antonin Rapini
-** Last update Sun May 14 21:06:30 2017 Antonin Rapini
+** Last update Sun May 14 21:12:04 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -44,7 +44,8 @@ void		my_connect_random_visited(t_node *node, t_maze *maze)
 			       node->y + dir[random].y, maze))
     random = rand() % 4;
   maze->maze[node->y][node->x] = PATH_CHAR;
-  maze->maze[node->y + dir[random].y / 2][node->x + dir[random].x / 2] = PATH_CHAR;
+  maze->maze[node->y + dir[random].y / 2][node->x + dir[random].x / 2]
+    = PATH_CHAR;
 }
 
 void		my_connect_random(t_node **frontiers, t_maze *maze)
