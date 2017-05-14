@@ -5,7 +5,7 @@
 ** Login   <antonin.rapini@epitech.net>
 ** 
 ** Started on  Sun May 14 18:10:52 2017 Antonin Rapini
-** Last update Sun May 14 21:04:04 2017 Antonin Rapini
+** Last update Sun May 14 21:06:30 2017 Antonin Rapini
 */
 
 #include "maze.h"
@@ -65,11 +65,6 @@ void		my_generate_perfect(t_maze *maze)
   maze->maze[0][0] = PATH_CHAR;
   my_add_neighbours(0, 0, &frontiers, maze);
   while (frontiers != NULL)
-    {
-      my_show_wordtab(maze->maze);
-      my_putchar('\n');
-      my_putchar('\n');
-      my_connect_random(&frontiers, maze);
-    }
+    my_connect_random(&frontiers, maze);
   fix_maze(maze);
 }
