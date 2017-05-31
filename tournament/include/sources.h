@@ -1,11 +1,11 @@
 /*
-** sources.h for astar in /home/antonin.rapini/ModulesTek1/IA/dante/astar/include
+** sources.h for base in /home/antonin.rapini/my_programs/include
 ** 
 ** Made by Antonin Rapini
 ** Login   <antonin.rapini@epitech.net>
 ** 
-** Started on  Fri May  5 18:03:15 2017 Antonin Rapini
-** Last update Sun May  7 02:38:43 2017 Antonin Rapini
+** Started on  Thu Mar  2 17:18:06 2017 Antonin Rapini
+** Last update Sun May  7 03:56:58 2017 Antonin Rapini
 */
 
 #ifndef SOURCES_H_
@@ -13,6 +13,6 @@
 
 #include "dante.h"
 
-t_node *my_astar(t_maze *);
+t_node *my_bfs(t_maze *);
 
 #endif /* !SOURCES_H_ */
